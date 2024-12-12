@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Development Roadmap</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 2rem;
+            color: #333;
+        }
+        .title{
+            background-color: red;
+            color: #ffff;
+            box-shadow: 6px 8px 12px 0px black;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .tree {
+            display: flex;
+            justify-content: center;
+        }
+
+        ul {
+            list-style-type: none;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        ul::before {
+            content: '';
+            border-left: 2px solid #5d9cec;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+        }
+
+        li {
+            margin: 1rem 0;
+            position: relative;
+        }
+
+        li::before {
+            content: '';
+            border-top: 2px solid #5d9cec;
+            position: absolute;
+            top: 0.7rem;
+            left: -1rem;
+            width: 1rem;
+        }
+
+        li span {
+            display: inline-block;
+            background: #5d9cec;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        li ul {
+            display: none;
+            padding-left: 1.5rem;
+        }
+
+        li span.active + ul {
+            display: block;
+        }
+
+        li ul li span {
+            background: #4caf50;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const items = document.querySelectorAll('li span');
+            
+            items.forEach(item => {
+                item.addEventListener('click', () => {
+                    // Toggle active class on the clicked item
+                    item.classList.toggle('active');
+                    
+                    // Close other open lists if necessary
+                    items.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1 class="title">Web Development Roadmap</h1>
+    <div class="tree">
+        <ul>
+            <li><span>HTML</span>
+                <ul>
+                    <li><span>Basic Tags</span></li>
+                    <li><span>Forms</span></li>
+                    <li><span>Semantic Elements</span></li>
+                </ul>
+            </li>
+            <li><span>CSS</span>
+                <ul>
+                    <li><span>Selectors</span></li>
+                    <li><span>Box Model</span></li>
+                    <li><span>Flexbox & Grid</span></li>
+                    <li><span>Animations & Transitions</span></li>
+                </ul>
+            </li>
+            <li><span>JavaScript</span>
+                <ul>
+                    <li><span>ES6 Basics</span></li>
+                    <li><span>DOM Manipulation</span></li>
+                    <li><span>Fetch API & AJAX</span></li>
+                    <li><span>Promises & Async/Await</span></li>
+                </ul>
+            </li>
+            <li><span>Frameworks</span>
+                <ul>
+                    <li><span>React</span></li>
+                    <li><span>Vue.js</span></li>
+                    <li><span>Angular</span></li>
+                </ul>
+            </li>
+            <li><span>Backend</span>
+                <ul>
+                    <li><span>Node.js</span></li>
+                    <li><span>Databases (SQL & NoSQL)</span></li>
+                    <li><span>APIs & REST</span></li>
+                </ul>
+            </li>
+            <li><span>Version Control</span>
+                <ul>
+                    <li><span>Git Basics</span></li>
+                    <li><span>GitHub</span></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
